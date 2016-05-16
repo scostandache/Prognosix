@@ -6,4 +6,6 @@
  * Time: 11:03 PM
  */
 
+echo "hello"
+
 ?>
