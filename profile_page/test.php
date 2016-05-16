@@ -7,7 +7,7 @@
  */
 
 
-echo  "ampps test"
+echo  "ampps test !!"
 
 ?>
 
