@@ -7,8 +7,8 @@
  */
 
 
-echo  "ampps test !!"
-
+echo  "ampps test !!";
+echo "ok!! ";
 ?>
 
 
