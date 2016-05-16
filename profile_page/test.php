@@ -9,6 +9,7 @@
 
 echo  "ampps test !!";
 echo "ok!! ";
+echo " ba dum tsss";
 ?>
 
 
