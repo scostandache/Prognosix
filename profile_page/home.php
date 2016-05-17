@@ -1,18 +1,17 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Serban
- * Date: 5/16/2016
- * Time: 11:03 PM
- */
+<!DOCTYPE html>
+<html>
+
+
+
+<head>
+    <title></title>
+</head>
+<body>
+
+</body>
 
 
 
 
-echo "hello, this is serban's branch"
+</html>
 
-
-
-
-
-?>
