@@ -1,6 +1,6 @@
 <?php
 
-echo "salut eu sunt gigi "
+echo "salut ! eu sunt gigi "
 
 ?>
 
