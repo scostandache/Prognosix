@@ -1,7 +1,6 @@
 <?php
 
-echo "hello world"
-
+echo " am modificat ceva aici"
 
 ?>
 
