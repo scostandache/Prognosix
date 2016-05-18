@@ -1,6 +1,7 @@
 <?php
 
-echo " salutaree ba copii"
+echo " salutaree ba copii ba"
+
 
 ?>
 
