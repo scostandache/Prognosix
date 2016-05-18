@@ -1,4 +1,8 @@
-echo "salut"
+<?php
+
+echo " salutaree"
+
+?>
 
 
 
