@@ -1,6 +1,6 @@
 <?php
 
-echo "am scris ceva aicii"
+echo "am scris ceva aici"
 
 
 ?>
