@@ -1,11 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>fsafas</title>
+    <title>PrognosiX</title>
 </head>
 
 <body>
-    asfasfa
+
+    <header>
+        <div class="logo">
+                <div class="app_name">ProGnosiX</div>
+                <div class="slogan">Guess Your Mark</div>
+        </div>
+
+        <div class="actual_section">
+            <?php echo "hello"?>
+        </div>
+
+    </header>
+
 </body>
+
+
+
+
+
 </html>
 
