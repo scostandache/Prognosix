@@ -4,6 +4,9 @@
 
 }
 
-.left_menu_item{
+.student_informations_list>li , .left_menu_item{
+
     list-style-type: none;
+
 }
+
