@@ -12,18 +12,16 @@
     <link rel="stylesheet" type="text/css" href="../CSS/style.css">
     <script type="text/javascript" src="..//JS/functions.js"></script>
 
-
-
 </head>
 <body>
 
 <header class="main_header">
-
+    <a href="../index.php">
         <div class="logo">
             <div class="app_name">ProGnosiX</div>
             <div class="slogan">Guess Your Mark</div>
         </div>
-
+    </a>
 </header>
 
 <?php
@@ -91,12 +89,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $raspuns = test_input($_POST["raspuns"]);
 
         echo '<script type="text/javascript">alert("Student inregistrat");</script>';
+        header('Location:../index.php');
     }
 
-
-
 }
-
 
 function test_input($data)
 {
@@ -108,7 +104,6 @@ function test_input($data)
 ?>
 
 <div class="form">
-
 
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
 

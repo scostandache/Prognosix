@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
     <title>PrognosiX</title>
@@ -8,8 +7,8 @@
 
 <?php
 
-    session_start();
-    $_SESSION['matricola']='13sl13';
+
+    include("../user/session.php");
 
     $servername="localhost";
     $username="serb_costa";
@@ -23,7 +22,7 @@
 
     }
 
-    $matricola_student=$_SESSION['matricola'];
+    $matricola_student=$_SESSION['nr_matricol'];
 
     $sql_info_student="SELECT nume, prenume, grupa,email,matricola from studenti where matricola = ?";
 
@@ -33,10 +32,6 @@
     $student_info_query->bind_result($nume,$prenume,$grupa,$email,$matricola);
     $student_info_query->fetch();
     
-    $_SESSION['nume']=$nume;
-    $_SESSION['prenume']=$prenume;
-    $_SESSION['grupa']=$grupa;
-    $_SESSION['email']=$email;
     
 ?>
 
@@ -61,7 +56,7 @@
 
             <li class="left_menu_item" id="catalog_profil_switch" onclick="triggerFunctions()">Catalog Note</li>
             <li class="left_menu_item"><a href="change_pass.php">Schimba parola </a> </li>
-            <li class="left_menu_item"><a href="logout.php"> Log out </a> </li>
+            <li class="left_menu_item"><a href="../user/logout.php"> Log out </a> </li>
 
         </ul>
 

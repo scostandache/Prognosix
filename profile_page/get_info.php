@@ -1,16 +1,10 @@
 <?php
-
-/*$nume=$_SESSION['nume'];
+include("../user/session.php");
+$nume=$_SESSION['nume'];
 $prenume=$_SESSION['prenume'];
 $grupa=$_SESSION['grupa'];
 $email=$_SESSION['email'];
-$nr_matricol=$_SESSION['matricola'];
-*/
-$nume="costandache";
-$prenume="valeriu";
-$grupa="3A2";
-$email="valeriuv.costandache@info.uaic.ro";
-$nr_matricol="13sl13";
+$nr_matricol=$_SESSION['nr_matricol'];
 
 echo
 "<ul class=\"student_informations_list\">

@@ -1,5 +1,5 @@
 <?php
-
+include("../user/session.php");
 $servername="localhost";
 $username="serb_costa";
 $pass="pass";
@@ -12,9 +12,8 @@ if ($conn->connect_error) {
 
 }
 
-$nr_matricol='13sl13';
 
-//$nr_matricol=$_SESSION['matricola'];
+$nr_matricol=$_SESSION['nr_matricol'];
 
 $sql_student_objects_query="select DISTINCT examene.nume_obiect FROM note INNER JOIN examene ON note.examen_id = examene.id_exam where note.student_matricola=?";
 $student_info_query=$conn->prepare($sql_student_objects_query);
