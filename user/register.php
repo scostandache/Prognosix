@@ -122,7 +122,7 @@ function test_input($data)
     Confirm Password:<input type="password" name="confirm_password" required>
 
     <br><br>
-    E-mail: <input type="text" name="email" required>
+    E-mail: <input type="email" name="email" required>
 
     <br><br>
     <?php
