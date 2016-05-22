@@ -3,12 +3,14 @@
 <head>
     <title>PrognosiX</title>
     <link rel="stylesheet" type="text/css" href="../CSS/style.css">
+    <script type="text/javascript" src="..//JS/functions.js"></script>
 </head>
 
 <?php
 
     session_start();
-    $_SESSION['matricola']='12sl12';
+    $_SESSION['matricola']='13sl13';
+
     $servername="localhost";
     $username="serb_costa";
     $pass="pass";
@@ -22,6 +24,7 @@
     }
 
     $matricola_student=$_SESSION['matricola'];
+
     $sql_info_student="SELECT nume, prenume, grupa,email,matricola from studenti where matricola = ?";
 
     $student_info_query=$conn->prepare($sql_info_student);
@@ -29,19 +32,25 @@
     $student_info_query->execute();
     $student_info_query->bind_result($nume,$prenume,$grupa,$email,$matricola);
     $student_info_query->fetch();
-
+    
+    $_SESSION['nume']=$nume;
+    $_SESSION['prenume']=$prenume;
+    $_SESSION['grupa']=$grupa;
+    $_SESSION['email']=$email;
+    
 ?>
 
 <body>
 
     <header class="main_header">
-        <div class="logo">
-                <div class="app_name">ProGnosiX</div>
-                <div class="slogan">Guess Your Mark</div>
-        </div>
-
-        <div class="actual_section">
-            <?php echo "hello"?>
+        <a href="home.php">
+            <div class="logo">
+                    <div class="app_name">ProGnosiX</div>
+                    <div class="slogan">Guess Your Mark</div>
+            </div>
+        </a>
+        <div id="actual_section">
+            Profilul meu
         </div>
 
     </header>
@@ -50,7 +59,7 @@
 
         <ul class="left_menu">
 
-            <li class="left_menu_item" onclick="afiseaza_catalog(<?php lista_note ?>)">Catalog Note</li>
+            <li class="left_menu_item" id="catalog_profil_switch" onclick="triggerFunctions()">Catalog Note</li>
             <li class="left_menu_item"><a href="change_pass.php">Schimba parola </a> </li>
             <li class="left_menu_item"><a href="logout.php"> Log out </a> </li>
 
@@ -60,7 +69,7 @@
 
     <div class="middle_section">
 
-        <div class="info_student">
+        <div id="info_student">
 
               <ul class="student_informations_list">
 
