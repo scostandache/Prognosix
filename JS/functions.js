@@ -61,5 +61,12 @@ function trigger_middle_Functions(){
 
 }
 
+function test_grade(){
 
+   console.log(document.getElementById("info_student").innerHTML);
+     
+
+
+
+}
 

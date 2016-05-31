@@ -83,10 +83,13 @@
     </div>
 
     <div class="right_section">
-
+        <div id="ghiceste_nota">Note pe care le poti ghici:</div>
+        
         <?php include('guess_grades.php');?>
 
     </div>
+
+   
 
 </body>
 
