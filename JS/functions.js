@@ -42,7 +42,7 @@ function show_student_info(){
     
 }
 
-function triggerFunctions(){
+function trigger_middle_Functions(){
 
     if("Catalog Note"==document.getElementById("catalog_profil_switch").innerHTML){
 

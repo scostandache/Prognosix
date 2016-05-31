@@ -6,13 +6,13 @@ $error='';
 if (isset($_POST['submit'])) {
 
 
-    if (empty($_POST['nr_matricol']) || empty($_POST['password'])) {
-        $error = "Nr. matricol sau parola invalide";
+    if (empty($_POST['username']) || empty($_POST['password'])) {
+        $error = "Username sau parola invalide !";
     }
 
     else {
 
-        $nr_matricol=$_POST['nr_matricol'];
+        $user_name=$_POST['username'];
         $pass=$_POST['password'];
 
         $servername="localhost";
@@ -27,12 +27,12 @@ if (isset($_POST['submit'])) {
 
         }
 
-        $sql_info_student="SELECT nume,prenume,email,grupa from studenti where matricola = ? and parola= ?";
+        $sql_info_student="SELECT nume,prenume,email,grupa,matricola from studenti where username = ? and parola= ?";
 
         $student_info_query=$conn->prepare($sql_info_student);
-        $student_info_query->bind_param("ss",$nr_matricol,md5($pass) );
+        $student_info_query->bind_param("ss",$user_name,md5($pass) );
         $student_info_query->execute();
-        $student_info_query->bind_result($nume,$prenume,$email,$grupa);
+        $student_info_query->bind_result($nume,$prenume,$email,$grupa,$nr_matricol);
         $student_info_query->fetch();
 
         if($nume!=NULL){
@@ -42,11 +42,11 @@ if (isset($_POST['submit'])) {
             $_SESSION['prenume']=$prenume;
             $_SESSION['grupa']=$grupa;
             $_SESSION['email']=$email;
-
+            
             header("location: profile_page/home.php");
 
         }else {
-            $error = "Numarul matricol sau parola invalide !";
+            $error = "Username-ul sau parola invalide !";
         }
 
         $conn->close();

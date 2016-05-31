@@ -33,8 +33,8 @@ if(isset($_SESSION['login_user'])){
     <div id="login">
 
         <form action="" method="post">
-            <label>Nr. matricol :</label>
-            <input id="name" name="nr_matricol"  type="text">
+            <label>Username :</label>
+            <input id="username" name="username"  type="text">
             <label>Password :</label>
             <input id="password" name="password"  type="password">
             <input name="submit" type="submit" value=" Login ">

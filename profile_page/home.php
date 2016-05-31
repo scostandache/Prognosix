@@ -54,7 +54,7 @@
 
         <ul class="left_menu">
 
-            <li class="left_menu_item" id="catalog_profil_switch" onclick="triggerFunctions()">Catalog Note</li>
+            <li class="left_menu_item" id="catalog_profil_switch" onclick="trigger_middle_Functions()">Catalog Note</li>
             <li class="left_menu_item"><a href="change_pass.php">Schimba parola </a> </li>
             <li class="left_menu_item"><a href="../user/logout.php"> Log out </a> </li>
 
@@ -83,6 +83,8 @@
     </div>
 
     <div class="right_section">
+
+        <?php include('guess_grades.php');?>
 
     </div>
 
