@@ -78,7 +78,15 @@
 
         </div>
 
-        <div class="atom_feed"></div>
+        <div class="atom_feed">
+
+            
+
+
+
+
+
+        </div>
 
     </div>
 
