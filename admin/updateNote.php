@@ -88,9 +88,9 @@
             $prenume_student=$row["prenume"];
 
             $csv_line=array($nume_student,$initiala_tata,$prenume_student,$xml->student[$i]->nota);
-            $pdf_line=strtoupper($nume_student)." ".strtoupper($initiala_tata).". ".strtoupper($prenume_student);
+            $pdf_line=strtoupper($nume_student)." ".strtoupper($initiala_tata).". ".strtoupper($prenume_student)."               ".$xml->student[$i]->nota;
             
-            $pdf->MultiCell(0,8 , $pdf_line,1 ,'L');
+            $pdf->MultiCell(70,8 , $pdf_line,1 ,'C');
             
             fputcsv($csv_file, $csv_line);
 
@@ -100,6 +100,13 @@
         fclose($csv_file);
 
         $pdf->Output($pdf_file,'F');
+
+        
+
+
+
+
+
 
         mysqli_close($connection);
 
