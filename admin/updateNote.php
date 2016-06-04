@@ -1,9 +1,12 @@
 <?php
-
+require ("C:/fpdf181");
     $servername = "localhost";
-    $username = "root";
-    $password = "mysql";
-    $dbname = "dbtw";
+    $username = "serb_costa";
+    $password = "pass";
+    $dbname = "TW_database";
+
+
+
     $file = basename($_FILES["fileToUpload"]["name"]);
     $typeFile = pathinfo($file, PATHINFO_EXTENSION);
 
@@ -43,18 +46,57 @@
             //echo "matricola:" . $xml->student[$i]->matricola . " obiect:" . $xml->student[$i]->obiect . " nota:" . $xml->student[$i]->nota . "<br>";
 
         }
-        
-        
+
+        $sql_info="SELECT nume_obiect, tip, grupa from examene where id_exam=?";
+
+        $info_query=$connection->prepare($sql_info);
+        $info_query->bind_param("s",$xml->student[0]->examenid);
+        $info_query->execute();
+        $info_query->bind_result($nume_obiect,$tip_obiect,$grupa);
+        $info_query->fetch();
+
+        $csv_file_name="note_".$grupa."_".preg_replace('/\s+/', '_', $nume_obiect)."_".$tip.".csv";
+        $pdf_file_name="note_".$grupa."_".preg_replace('/\s+/', '_', $nume_obiect)."_".$tip.".pdf";
+
+        mysqli_close($connection);
+
+
+        $connection = new mysqli($servername, $username, $password, $dbname);
+
+        $csv_file = fopen("../file_export/$csv_file_name","w");
+
+
+        for ($i = 0; $i < count($xml); $i++) {
+
+
+            $matricola_student="'".str_replace('"','',$xml->student[$i]->matricola )."'";
+
+
+
+            $sql_student="SELECT nume, initiala_tatalui, prenume from studenti where matricola=$matricola_student";
+
+            $result = $connection->query($sql_student);
+
+            $row=$result->fetch_assoc();
+
+            $nume_student=$row["nume"];
+            $initiala_tata=$row["initiala_tatalui"];
+            $prenume_student=$row["prenume"];
+
+            $csv_line=array($nume_student,$initiala_tata,$prenume_student,$xml->student[$i]->nota);
+            fputcsv($csv_file, $csv_line);
+
+
+        }
 
 
 
 
-
-
+        mysqli_close($connection);
 
 
 
         echo "Succesfully grades upload.";
-        mysqli_close($connection);
+
     }
 ?>
