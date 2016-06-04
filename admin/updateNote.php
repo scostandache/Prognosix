@@ -1,5 +1,5 @@
 <?php
-require ("C:/fpdf181");
+require ("../fpdf181/fpdf.php");
     $servername = "localhost";
     $username = "serb_costa";
     $password = "pass";
@@ -71,8 +71,6 @@ require ("C:/fpdf181");
 
             $matricola_student="'".str_replace('"','',$xml->student[$i]->matricola )."'";
 
-
-
             $sql_student="SELECT nume, initiala_tatalui, prenume from studenti where matricola=$matricola_student";
 
             $result = $connection->query($sql_student);
@@ -88,11 +86,11 @@ require ("C:/fpdf181");
 
 
         }
-
-
-
+        fclose($csv_file);
 
         mysqli_close($connection);
+
+
 
 
 
