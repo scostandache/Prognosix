@@ -1,9 +1,9 @@
 <?php
     ini_set("display_errors", 0);//ascunde warning-urile
     $servername = "localhost";
-    $username = "root";
-    $password = "mysql";
-    $dbname = "dbtw";
+    $username = "serb_costa";
+    $password = "pass";
+    $dbname = "TW_database";
 
     $obiect = strtolower ($_POST[obiect]);
     $tip = strtolower ($_POST[tip]);
@@ -69,6 +69,7 @@
                         echo "Succesfully insert event." . "<br>";
                     }
 
+
                     $sql = "SELECT grupa FROM examene WHERE nume_obiect = '" . $obiect . "' and tip = '" . $tip . "'";
                     $result = $connection->query($sql);
                     $row = $result->fetch_assoc();
@@ -92,13 +93,16 @@
                                               VALUES (NULL, NULL, " . $matricola . ", " . $id_exam . ");";
                             }
                         }
-                        //echo $sqlInsert2;
+                    //    echo $sqlInsert2;
+
                         if ($connection->multi_query($sqlInsert2) === FALSE) {
                             echo "Fail insert for grades." . $connection->error . "<br>";
                         } else {
                             echo "Succesfully insert for grades." . "<br>";
                         }
-                    } else {
+                    }
+
+                    else {
                         $sql = "SELECT matricola from studenti WHERE grupa = '" . $grupa . "'";
                         $result = $connection->query($sql);
                         while ($row = $result->fetch_assoc()) {
@@ -117,7 +121,7 @@
                                           VALUES (NULL, NULL, " . $matricola . ", " . $id_exam . ");";
                             }
                         }
-                        //echo $sqlInsert2;
+                        echo $sqlInsert2;
                         if ($connection->multi_query($sqlInsert2) === FALSE) {
                             echo "Fail insert for grades." . $connection->error . "<br>";
                         } else {

@@ -32,8 +32,14 @@ if( false == $semester_dates[$today] ){
         "examene on note.examen_id=examene.id_exam where data_rezultate<CURRENT_DATE";
 
     $connection = new mysqli($servername, $username, $password, $dbname);
-    $result = $connection->query($grades_query);
+    $students_grades = $connection->query($grades_query);
 
+    while($row=$students_grades->fetch_assoc()){
+          $row["student_matricola"]["luata"]=789;
+
+
+
+    }
 
 
 
