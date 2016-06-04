@@ -1,9 +1,9 @@
 <?php
 
     $servername = "localhost";
-    $username="serb_costa";
-    $db_pass="pass";
-    $DB="TW_database";
+    $username = "root";
+    $password = "mysql";
+    $dbname = "dbtw";
     $file = basename($_FILES["fileToUpload"]["name"]);
     $typeFile = pathinfo($file, PATHINFO_EXTENSION);
 
@@ -13,7 +13,8 @@
     if($typeFile != "xml"){
         echo "This file is not a XML." . "<br>";
     }
-    else {
+    else
+    {
         $connection = new mysqli($servername, $username, $password, $dbname);
 
         if ($connection->connect_error) {
@@ -35,13 +36,23 @@
 
             $query = "UPDATE note
                   SET luata=" . $xml->student[$i]->nota .
-                " WHERE student_matricola =" . $xml->student[$i]->matricola . " and " . "examen_id =" . $xml->student[$i]->obiect;
-
+                " WHERE student_matricola =" . $xml->student[$i]->matricola . " and " . "examen_id =" . $xml->student[$i]->examenid;
             if ($connection->query($query) === FALSE) {
                 echo "Fail grades upload: " . $connection->error;
             }
             //echo "matricola:" . $xml->student[$i]->matricola . " obiect:" . $xml->student[$i]->obiect . " nota:" . $xml->student[$i]->nota . "<br>";
+
         }
+        
+        
+
+
+
+
+
+
+
+
 
         echo "Succesfully grades upload.";
         mysqli_close($connection);

@@ -17,6 +17,7 @@
 
         Obiect <input type="text" name="obiect"><br>
         Tip <input type="text" name="tip"><br>
+        Grupa <input type="text" name="grupa"><br>
         Data inceput: <input type="text" name="inceput"><br>
         Data sfarsit: <input type="text" name="sfarsit"><br>
         <input type="submit" value="Send" name="submit2">
