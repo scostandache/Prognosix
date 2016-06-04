@@ -26,7 +26,7 @@ $dbname = "TW_database";
 
 $connection = new mysqli($servername, $username, $password, $dbname);
 
-$feed_query="SELECT title,destined_to,content,posted from reports";
+$feed_query="SELECT id,title,destined_to,content,posted from reports";
 $result = $connection->query($feed_query);
 
 echo "<?xml version='1.0' encoding='iso-8859-1' ?>";
@@ -38,4 +38,33 @@ echo "<?xml version='1.0' encoding='iso-8859-1' ?>";
     <link href="http://localhost/Prognosix/atom_feed" rel="self"/>
     <updated><?php echo date3339(); ?></updated>
     <id>http://localhost/Prognosix/atom_feed/syndication.php</id>
+
+    <?php
+
+        $i=0;
+        while($row=mysqli_fetch_array($result)){
+            if ($i > 0) {
+                echo "</entry>";
+            }
+        $report_date=$row['posted'];
+        echo "<entry>";
+        echo "<title>";
+        echo $row['title'];
+        echo "</title>";
+        echo "<id>";
+        echo $row['id'];
+        echo"</id>";
+        echo"<updated>";
+        echo $row['posted'];
+        echo"</updated>";
+        echo"<destined_to>";
+        echo $row['destined_to'];
+        echo "</destined_to>";
+        echo "<content>";
+        echo $row['content'];
+        echo "</content>";
+        $i++;
+    }
+    ?>
+   </entry>
 </feed>

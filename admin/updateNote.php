@@ -101,9 +101,9 @@
 
         $report_title="Note ".$nume_obiect." - ".$tip_obiect;
         $report_destined_to=$grupa;
-        $report_content="Acestea sunt notele la ".$tip_obiect."ul "." de ".$nume_obiect.": <br>".
-                        "<a href='download.php?to_dwnd=$csv_file_name'>Fisier CSV</a>".
-                        "<a href='download.php?to_dwnd=$pdf_file_name'>Fisier PDF</a>";
+        $report_content="Acestea sunt notele la ".$tip_obiect."ul "." de ".$nume_obiect.": <![CDATA[ </br>".
+                        "<a href='download.php?to_dwnd=$csv_file_name'>Fisier CSV</a>  </br>".
+                        "<a href='download.php?to_dwnd=$pdf_file_name'>Fisier PDF</a> ]]>";
 
         $sql_report=$connection->prepare("INSERT into reports(TITLE,DESTINED_TO,CONTENT,POSTED) VALUES (?,?,?,NOW())");
 
