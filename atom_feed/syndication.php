@@ -26,7 +26,7 @@ $dbname = "TW_database";
 
 $connection = new mysqli($servername, $username, $password, $dbname);
 
-$feed_query="SELECT id,title,destined_to,content,posted from reports";
+$feed_query="SELECT id,title,category,content,posted from reports";
 $result = $connection->query($feed_query);
 
 echo "<?xml version='1.0' encoding='iso-8859-1' ?>";
@@ -57,9 +57,9 @@ echo "<?xml version='1.0' encoding='iso-8859-1' ?>";
         echo"<updated>";
         echo $row['posted'];
         echo"</updated>";
-        echo"<destined_to>";
-        echo $row['destined_to'];
-        echo "</destined_to>";
+        $label=$row['category'];
+        echo"<category term='$label'>";
+        echo "</category>";
         echo "<content>";
         echo $row['content'];
         echo "</content>";

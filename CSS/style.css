@@ -13,7 +13,10 @@
 .student_informations_list{
     border:1px solid;
 }
-
+.atom_feed{
+    border:1px solid;
+    width:50%;
+}
 #info_student{
     width:50%;
 }

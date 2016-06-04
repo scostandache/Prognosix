@@ -81,7 +81,7 @@
         <div class="atom_feed">
 
 
-
+            <?php include('../atom_feed/parser.php'); ?>
 
 
 
