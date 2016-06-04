@@ -6,8 +6,6 @@
     $password = "pass";
     $dbname = "TW_database";
 
-
-
     $file = basename($_FILES["fileToUpload"]["name"]);
     $typeFile = pathinfo($file, PATHINFO_EXTENSION);
 
@@ -61,7 +59,6 @@
 
         mysqli_close($connection);
 
-
         $connection = new mysqli($servername, $username, $password, $dbname);
 
         $csv_file = fopen("../file_export/$csv_file_name","w");
@@ -71,9 +68,7 @@
         $pdf->AddPage();
         $pdf->SetFont('Arial','B',8);
 
-
         for ($i = 0; $i < count($xml); $i++) {
-
 
             $matricola_student="'".str_replace('"','',$xml->student[$i]->matricola )."'";
 
@@ -94,7 +89,6 @@
             
             fputcsv($csv_file, $csv_line);
 
-
         }
 
         fclose($csv_file);
@@ -102,7 +96,6 @@
         $pdf->Output($pdf_file,'F');
 
         mysqli_close($connection);
-
 
         $connection = new mysqli($servername, $username, $password, $dbname);
 
@@ -112,15 +105,12 @@
                         "<a href='download.php?to_dwnd=$csv_file_name'>Fisier CSV</a>".
                         "<a href='download.php?to_dwnd=$pdf_file_name'>Fisier PDF</a>";
 
-        $sql_report="INSERT into reports(TITLE,DESTINED_TO,CONTENT) VALUES (?,?,?)";
-        $sql_report=$connection->prepare($sql_report);
+        $sql_report=$connection->prepare("INSERT into reports(TITLE,DESTINED_TO,CONTENT,POSTED) VALUES (?,?,?,NOW())");
+
         $sql_report->bind_param('sss',$report_title,$report_destined_to,$report_content );
         $sql_report->execute();
 
-        echo $sql_report->affected_rows();
         mysqli_close($connection);
-
-
 
         echo "Succesfully grades upload.";
 
