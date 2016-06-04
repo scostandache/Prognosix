@@ -101,14 +101,25 @@
 
         $pdf->Output($pdf_file,'F');
 
-        
-
-
-
-
-
-
         mysqli_close($connection);
+
+
+        $connection = new mysqli($servername, $username, $password, $dbname);
+
+        $report_title="Note ".$nume_obiect." - ".$tip_obiect;
+        $report_destined_to=$grupa;
+        $report_content="Acestea sunt notele la ".$tip_obiect."ul "." de ".$nume_obiect.": <br>".
+                        "<a href='download.php?to_dwnd=$csv_file_name'>Fisier CSV</a>".
+                        "<a href='download.php?to_dwnd=$pdf_file_name'>Fisier PDF</a>";
+
+        $sql_report="INSERT into reports(TITLE,DESTINED_TO,CONTENT) VALUES (?,?,?)";
+        $sql_report=$connection->prepare($sql_report);
+        $sql_report->bind_param('sss',$report_title,$report_destined_to,$report_content );
+        $sql_report->execute();
+
+        echo $sql_report->affected_rows();
+        mysqli_close($connection);
+
 
 
         echo "Succesfully grades upload.";
