@@ -90,7 +90,17 @@ require ("../fpdf181/fpdf.php");
 
         mysqli_close($connection);
 
+        $pdf_file="../file_export/$pdf_file_name";
 
+        $pdf = new FPDF();
+        $pdf->AddPage();
+        $pdf->SetFont('Arial','B',16);
+        $pdf->Cell(40,10,'Hello World!');
+        $pdf->WriteHTML("<table></table>");
+
+
+
+        $pdf->Output($pdf_file,'F');
 
 
 
