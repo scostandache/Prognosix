@@ -4,6 +4,7 @@
     $username = "root";
     $password = "mysql";
     $dbname = "dbtw";
+
     $obiect = strtolower ($_POST[obiect]);
     $tip = strtolower ($_POST[tip]);
     $grupa = strtoupper ($_POST[grupa]);

@@ -1,6 +1,7 @@
 <?php
     require ("../fpdf181/fpdf.php");
     require("../html_table.php");
+
     $servername = "localhost";
     $username = "serb_costa";
     $password = "pass";

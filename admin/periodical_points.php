@@ -13,12 +13,27 @@ $newformat2 = date('d-m-Y',$time2);
 
 $semester_dates=[
 
-     $newformat1=>"false",
-     $newformat2=>"false"
+     $newformat1=>false,
+     $newformat2=>false
 
 ];
 
-if( false == $newformat1[$today] ){
+
+if( false == $semester_dates[$today] ){
+
+    echo "today";
+    $servername = "localhost";
+    $username = "serb_costa";
+    $password = "pass";
+    $dbname = "TW_database";
+
+    $grades_query="select student_matricola, luata,ghicita, nume_obiect from note inner join ".
+        "evenimente on note.examen_id=evenimente.examen_id inner join ".
+        "examene on note.examen_id=examene.id_exam where data_rezultate<CURRENT_DATE";
+
+    $connection = new mysqli($servername, $username, $password, $dbname);
+    $result = $connection->query($grades_query);
+
 
 
 
