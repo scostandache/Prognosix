@@ -1,5 +1,6 @@
 <?php
-require ("../fpdf181/fpdf.php");
+    require ("../fpdf181/fpdf.php");
+    require("../html_table.php");
     $servername = "localhost";
     $username = "serb_costa";
     $password = "pass";
@@ -55,8 +56,8 @@ require ("../fpdf181/fpdf.php");
         $info_query->bind_result($nume_obiect,$tip_obiect,$grupa);
         $info_query->fetch();
 
-        $csv_file_name="note_".$grupa."_".preg_replace('/\s+/', '_', $nume_obiect)."_".$tip.".csv";
-        $pdf_file_name="note_".$grupa."_".preg_replace('/\s+/', '_', $nume_obiect)."_".$tip.".pdf";
+        $csv_file_name="note_".$grupa."_".preg_replace('/\s+/', '_', $nume_obiect)."_".$tip_obiect.".csv";
+        $pdf_file_name="note_".$grupa."_".preg_replace('/\s+/', '_', $nume_obiect)."_".$tip_obiect.".pdf";
 
         mysqli_close($connection);
 
@@ -64,6 +65,11 @@ require ("../fpdf181/fpdf.php");
         $connection = new mysqli($servername, $username, $password, $dbname);
 
         $csv_file = fopen("../file_export/$csv_file_name","w");
+        $pdf_file="../file_export/$pdf_file_name";
+
+        $pdf = new PDF();
+        $pdf->AddPage();
+        $pdf->SetFont('Arial','B',8);
 
 
         for ($i = 0; $i < count($xml); $i++) {
@@ -82,26 +88,20 @@ require ("../fpdf181/fpdf.php");
             $prenume_student=$row["prenume"];
 
             $csv_line=array($nume_student,$initiala_tata,$prenume_student,$xml->student[$i]->nota);
+            $pdf_line=strtoupper($nume_student)." ".strtoupper($initiala_tata).". ".strtoupper($prenume_student);
+            
+            $pdf->MultiCell(0,8 , $pdf_line,1 ,'L');
+            
             fputcsv($csv_file, $csv_line);
 
 
         }
+
         fclose($csv_file);
-
-        mysqli_close($connection);
-
-        $pdf_file="../file_export/$pdf_file_name";
-
-        $pdf = new FPDF();
-        $pdf->AddPage();
-        $pdf->SetFont('Arial','B',16);
-        $pdf->Cell(40,10,'Hello World!');
-        $pdf->WriteHTML("<table></table>");
-
-
 
         $pdf->Output($pdf_file,'F');
 
+        mysqli_close($connection);
 
 
         echo "Succesfully grades upload.";
