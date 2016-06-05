@@ -6,11 +6,13 @@ $grupa= $_SESSION['grupa'];
 
 error_reporting(E_ERROR);
 include_once('../simplepie/autoloader.php');
+
 $url="http://localhost/Prognosix/atom_feed/syndication.php";
 
 $feed= new SimplePie();
 $feed->set_feed_url($url);
 $feed->set_output_encoding('Windows-1252');
+$feed->enable_cache(false);
 $feed->init();
 
 $items=$feed->get_items();

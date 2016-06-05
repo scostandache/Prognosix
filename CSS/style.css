@@ -29,3 +29,7 @@ a{
 .app_name{
     color:cornflowerblue!important;
 }
+.feed_item {
+
+    border: 1px solid;
+}

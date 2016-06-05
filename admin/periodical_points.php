@@ -124,14 +124,39 @@ elseif($today==$row2[0] && $row2[1]==0){
 
     $grades_query="select student_matricola, luata,ghicita, nume_obiect from note inner join ".
         "evenimente on note.examen_id=evenimente.examen_id inner join ".
-        "examene on note.examen_id=examene.id_exam where data_rezultate < CURRENT_DATE";
+        "examene on note.examen_id=examene.id_exam where data_rezultate>=? and data_rezultate <= ?";
 
-    $students_grades = $connection->query($grades_query);
+    $grades_query=$connection->prepare($grades_query);
+    $grades_query->bind_param("ss",$row1[0],$row2[0] );
+    $grades_query->execute();
+
+    $meta=$grades_query->result_metadata();
+
+    while ($field = $meta->fetch_field())
+    {
+        $params[] = & $row[$field->name];
+    }
+
+    call_user_func_array(array($grades_query, 'bind_result'), $params);
+    
+    while ($grades_query->fetch()) {
+
+        foreach($row as $key => $val)
+
+        {
+
+            $c[$key] = $val;
+
+        }
+
+        $result[] = $c;
+
+    }
 
     mysqli_close($connection);
 
-
-    while($row=$students_grades->fetch_assoc()){
+    foreach($result as $row){
+        echo $row['luata'];
 
         if($row["luata"]!=$row["ghicita"]){
             $object_name=$row["nume_obiect"];
@@ -170,7 +195,7 @@ elseif($today==$row2[0] && $row2[1]==0){
 
     }
 
-    $row1[1]=1;
+    $row2[1]=1;
 
     $connection= new mysqli($servername,$username,$db_pass,$DB);
     $update_announced="UPDATE anunturi_periodice set students_announced = 1 where announce_date =?";

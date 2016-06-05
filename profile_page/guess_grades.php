@@ -36,9 +36,9 @@ $stmt->bind_param('s', $nr_matricol);
 
 $stmt->execute();
 
-$meta = $stmt->result_metadata();
 
 $meta = $stmt->result_metadata();
+
 
 while ($field = $meta->fetch_field())
 {

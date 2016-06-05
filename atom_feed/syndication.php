@@ -29,6 +29,7 @@ $connection = new mysqli($servername, $username, $password, $dbname);
 $feed_query="SELECT id,title,category,content,posted from reports";
 $result = $connection->query($feed_query);
 mysqli_close($connection);
+
 echo "<?xml version='1.0' encoding='iso-8859-1' ?>";
 ?>
 
