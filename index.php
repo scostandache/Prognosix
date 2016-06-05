@@ -42,7 +42,7 @@ if(isset($_SESSION['login_user'])){
         </form>
     </div>
     <a class="register_button" href="user/register.php">Register</a>
-
+    <a class="forgot_pass_button" href="user/forgot.php">Register</a>
 </div>
 
 
