@@ -14,26 +14,28 @@ if(isset($_SESSION['login_user'])){
 </head>
 
 <body>
+<div id="wrap">
+    <header class="main_header">
 
-<header class="main_header">
-    <a href="index.php">
-        <div class="logo">
-            <div class="app_name">ProGnosiX</div>
-            <div class="slogan">Guess Your Mark</div>
+            <div class="logo">
+                <a href="index.php">
+                    <div class="app_name">ProGnosiX</div>
+                    <div class="slogan">Guess Your Mark</div>
+                </a>
+            </div>
+
+        <div id="actual_section">
+
         </div>
-    </a>
-    <div id="actual_section">
-        
-    </div>
 
-</header>
-
+    </header>
+</div>
 <div id="main">
 
     <div id="login">
-
+        <h3 id="welcome_msg" > Bun venit in aplicatia PrognosiX</h3>
         <form action="" method="post">
-            <label>Username :</label>
+            <label>Username:</label>
             <input id="username" name="username"  type="text">
             <label>Parola:</label>
             <input id="password" name="password"  type="password">
@@ -41,8 +43,10 @@ if(isset($_SESSION['login_user'])){
             <span><?php echo $error; ?></span>
         </form>
     </div>
-    <a class="register_button" href="user/register.php">Inregistrare</a>
-    <a class="forgot_pass_button" href="user/forgotForm.php">Parola uitata</a>
+    <div class="underline_buttons">
+        <a class="register_button" href="user/register.php"><button>Inregistrare</button></a>
+        <a class="forgot_pass_button" href="user/forgotForm.php"><button>Parola uitata</button></a>
+    </div>
 </div>
 
 

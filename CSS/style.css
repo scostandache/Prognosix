@@ -1,9 +1,63 @@
-.main_header {
-
-    height: 150px;
+body{
+    font-family: monospace;
+    background: aliceblue;
+    margin: 0 !important;
 
 }
 
+.main_header {
+
+    height: 90px;
+
+}
+.logo .app_name{
+    font-size:20px;
+}
+
+#main #login{
+    width:40%;
+}
+#login{
+    margin-left: 28%;
+}
+#main{
+    border: 1px solid;
+    width: 50%;
+    margin-left: 25%;
+    background: floralwhite;
+    border-radius: 21px;
+    height: 31%;
+    padding-top: 56px;
+}
+
+input#password {
+    margin-left: 22px;
+}
+
+input#username{
+    margin: 8px;
+}
+#login input[name="submit"]{
+    margin-left: 47%;
+    margin-top: 20px;
+}
+
+.underline_buttons{
+    width: 50%;
+    margin-left: 37%;
+}
+
+.underline_buttons >button{
+    margin-bottom: 11px;
+    border-radius: 5px;
+    border: 1px solid;
+    padding-left: 12px;
+    padding-right: 12px;
+    font-family: Ubuntu;
+    font-size: 17px;
+    cursor: pointer;
+
+}
 .student_informations_list>li , .left_menu_item{
 
     list-style-type: none;
@@ -42,4 +96,10 @@ a{
 .main_header{
 
    background: aliceblue;
+}
+
+.logo{
+    width:20%;
+    margin-left:20px;
+    margin-top:20px;
 }
