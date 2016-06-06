@@ -105,7 +105,7 @@ if( $today==$row1[0] && $row1[1]==0){ // anuntul cu punctaje pentru jumatatea se
 
     $update_title="Punctaje partiale PrognosiX";
     $category='ALL';
-    $update_text="<![CDATA[ <a href='punctaje_prognosix.php'> Aici </a>]]> poti vedea punctajele partiale PrognosiX, in functie de fiecare obiect.";
+    $update_text="<![CDATA[ <a href='../admin/punctaje_prognosix.php'> Aici </a>]]> poti vedea punctajele partiale PrognosiX, in functie de fiecare obiect.";
     
     
     $connection= new mysqli($servername,$username,$db_pass,$DB);

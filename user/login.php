@@ -27,12 +27,12 @@ if (isset($_POST['submit'])) {
 
         }
 
-        $sql_info_student="SELECT nume,prenume,email,grupa,matricola from studenti where username = ? and parola= ?";
+        $sql_info_student="SELECT nume,prenume,email,grupa,matricola,admin from studenti where username = ? and parola= ?";
 
         $student_info_query=$conn->prepare($sql_info_student);
         $student_info_query->bind_param("ss",$user_name,md5($pass) );
         $student_info_query->execute();
-        $student_info_query->bind_result($nume,$prenume,$email,$grupa,$nr_matricol);
+        $student_info_query->bind_result($nume,$prenume,$email,$grupa,$nr_matricol,$admin);
         $student_info_query->fetch();
 
         if($nume!=NULL){
@@ -42,9 +42,14 @@ if (isset($_POST['submit'])) {
             $_SESSION['prenume']=$prenume;
             $_SESSION['grupa']=$grupa;
             $_SESSION['email']=$email;
+            $_SESSION['admin']=$admin;
             
+            if($admin==0){
             header("location: profile_page/home.php");
-
+            }
+            if($admin==1){
+                header("location: admin/admin_dash.php");
+            }
         }else {
             $error = "Username-ul sau parola invalide !";
         }

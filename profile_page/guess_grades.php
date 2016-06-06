@@ -12,7 +12,7 @@ if ($conn->connect_error) {
 
 }
 
-$stmt= $conn->prepare("select examene.nume_obiect,examene.tip,examene.id_exam ".
+$stmt= $conn->prepare("select examene.nume_obiect,examene.tip,examene.id_exam,evenimente.data_rezultate ".
 
     "from examene  ".
 
@@ -77,6 +77,7 @@ if (sizeof($result) > 0) {
                 
                     <span id='exam_name' >  " . ucfirst($result_line['nume_obiect']) . " </span>
                     <span id='exam_type' > ( " . ucfirst($result_line['tip']) . " )</span>
+                    <span id='limit_date'> Data limita: ".$result_line['data_rezultate']."
                 
                 </div>
                 <div class='grade_submit' >

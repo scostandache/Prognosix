@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Administrator</title>
 </head>
-<body>
     <form action="updateNote.php" method="post" enctype="multipart/form-data">
         Upload XML:
         <input type="file" name="fileToUpload" id="fileToUpload">
@@ -22,5 +21,5 @@
         Data sfarsit: <input type="text" name="sfarsit"><br>
         <input type="submit" value="Send" name="submit2">
     </form>
-</body>
+
 </html>

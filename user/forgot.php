@@ -1,9 +1,10 @@
 <?php
-    require_once('C:\Program Files (x86)\Ampps\www\Prognosix_tw\profile_page\PHPMailer-master\PHPMailerAutoload.php');
-    $servername = "localhost";
-    $username = "root";
-    $password = "mysql";
-    $dbname = "dbtw";
+    require_once('C:\Program Files (x86)\Ampps\www\Prognosix\PHPMailer-master\PHPMailerAutoload.php');
+
+$servername = "localhost";
+$username = "serb_costa";
+$password = "pass";
+$dbname = "TW_database";
 
     $connection = new mysqli($servername, $username, $password, $dbname);
 
@@ -46,7 +47,7 @@
             //mail($row["email"], "Forgot Password", $mesaj, $headers);
 
             $query = "UPDATE studenti
-                  SET parola= '" . $newPass .
+                  SET parola= '" . md5($newPass) .
                 " ' WHERE matricola ='" . $matricola . "'";
             if ($connection->query($query) === FALSE) {
                 echo "Fail update password: " . $connection->error;
@@ -62,9 +63,9 @@
                 $mail->Host = "smtp.gmail.com";
                 $mail->Port = 465;
                 $mail->IsHTML(true);
-                $mail->Username = "tazputazpu@gmail.com";
-                $mail->Password = "duteacasa";
-                $mail->SetFrom("tazputazpu@gmail.com");
+                $mail->Username = "prognosix.updates@gmail.com";
+                $mail->Password = "Pr0gnosix";
+                $mail->SetFrom("prognosix.updates@gmail.com");
                 $mail->Subject = "Forgot Password";
                 $mail->Body = $mesaj;
                 $mail->AddAddress($row["email"]);
@@ -72,7 +73,7 @@
                 if(!$mail->Send()) {
                     echo "Email Error: " . $mail->ErrorInfo;
                 } else {
-                    echo "Email-ul a fost trimis.";
+                    echo "Un mail cu noua parola a fost trimis.";
                 }
             }
         }
@@ -80,4 +81,5 @@
     }
 
     mysqli_close($connection);
+    header( "refresh:3;url=../index.php" );
 ?>

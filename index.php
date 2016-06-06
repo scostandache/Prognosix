@@ -23,7 +23,7 @@ if(isset($_SESSION['login_user'])){
         </div>
     </a>
     <div id="actual_section">
-        Home
+        
     </div>
 
 </header>
@@ -35,14 +35,14 @@ if(isset($_SESSION['login_user'])){
         <form action="" method="post">
             <label>Username :</label>
             <input id="username" name="username"  type="text">
-            <label>Password :</label>
+            <label>Parola:</label>
             <input id="password" name="password"  type="password">
             <input name="submit" type="submit" value=" Login ">
             <span><?php echo $error; ?></span>
         </form>
     </div>
-    <a class="register_button" href="user/register.php">Register</a>
-    <a class="forgot_pass_button" href="user/forgot.php">Register</a>
+    <a class="register_button" href="user/register.php">Inregistrare</a>
+    <a class="forgot_pass_button" href="user/forgotForm.php">Parola uitata</a>
 </div>
 
 

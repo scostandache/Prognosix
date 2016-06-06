@@ -7,7 +7,6 @@
 
 <?php
 
-
     include("../user/session.php");
 
     $servername="localhost";
@@ -31,8 +30,7 @@
     $student_info_query->execute();
     $student_info_query->bind_result($nume,$prenume,$grupa,$email,$matricola);
     $student_info_query->fetch();
-    
-    
+
 ?>
 
 <body>
@@ -55,7 +53,7 @@
         <ul class="left_menu">
 
             <li class="left_menu_item" id="catalog_profil_switch" onclick="trigger_middle_Functions()">Catalog Note</li>
-            <li class="left_menu_item"><a href="change_pass.php">Schimba parola </a> </li>
+            <li class="left_menu_item"><a href="../user/change_pass.php">Schimba parola </a> </li>
             <li class="left_menu_item"><a href="../user/logout.php"> Log out </a> </li>
 
         </ul>
@@ -80,12 +78,7 @@
 
         <div class="atom_feed">
 
-
             <?php include('../atom_feed/parser.php'); ?>
-
-
-
-
 
         </div>
 
@@ -97,8 +90,6 @@
         <?php include('guess_grades.php');?>
 
     </div>
-
-   
 
 </body>
 

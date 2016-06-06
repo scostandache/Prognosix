@@ -1,10 +1,10 @@
 <?php
     require('..\fpdf181\fpdf.php');
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "mysql";
-    $dbname = "dbtw";
+$servername = "localhost";
+$username = "serb_costa";
+$password = "pass";
+$dbname = "TW_database";
 
     $connection = new mysqli($servername, $username, $password, $dbname);
 
@@ -76,4 +76,5 @@
     mysqli_close($connection);
 
     $pdf->Output('statistici.pdf','D');
+    
 ?>

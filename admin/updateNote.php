@@ -68,7 +68,8 @@
         $pdf = new PDF();
         $pdf->AddPage();
         $pdf->SetFont('Arial','B',8);
-      
+        $pdf->SetX(65);
+        $pdf->MultiCell(70,8 , "Note ".strtoupper($tip_obiect)."-".strtoupper($nume_obiect).", Grupa ".$grupa,1 ,'C');
         
         for ($i = 0; $i < count($xml); $i++) {
 
@@ -85,10 +86,18 @@
             $prenume_student=$row["prenume"];
 
             $csv_line=array($nume_student,$initiala_tata,$prenume_student,$xml->student[$i]->nota);
-            $pdf_line=strtoupper($nume_student)." ".strtoupper($initiala_tata).". ".strtoupper($prenume_student)."               ".$xml->student[$i]->nota;
+            //$pdf_line=strtoupper($nume_student)." ".strtoupper($initiala_tata).". ".strtoupper($prenume_student)."               ".$xml->student[$i]->nota;
             
-            $pdf->MultiCell(70,8 , $pdf_line,1 ,'C');
-            
+
+            //$pdf->MultiCell(70,8 , $pdf_line,1 ,'C');
+            $pdf->SetX(65);
+            $pdf->Cell(55,5,strtoupper($nume_student)." ".strtoupper($initiala_tata).". ".strtoupper($prenume_student),1,0,'C',0);
+
+            $pdf->Cell(15,5,$xml->student[$i]->nota,1,0,'C',0);
+            $pdf->Ln();
+
+
+
             fputcsv($csv_file, $csv_line);
 
         }
@@ -113,8 +122,8 @@
         $sql_report->execute();
 
         mysqli_close($connection);
-
-        echo "Succesfully grades upload.";
+        header('location:admin_dash.php');
+        
 
     }
 ?>
