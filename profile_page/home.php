@@ -52,16 +52,18 @@
 
         <ul class="left_menu">
 
-            <li class="left_menu_item" id="catalog_profil_switch" onclick="trigger_middle_Functions()">Catalog Note</li>
-            <li class="left_menu_item"><a href="../user/change_pass.php">Schimba parola </a> </li>
-            <li class="left_menu_item"><a href="../user/logout.php"> Log out </a> </li>
+            <button><li class="left_menu_item" id="catalog_profil_switch" onclick="trigger_middle_Functions()">Catalog Note</li></button>
+
+            <button><li class="left_menu_item"><a href="../user/change_pass.php">Schimba parola </a> </li></button>
+
+            <button ><li class="left_menu_item"><a href="../user/logout.php"> Log out </a> </li></button>
 
         </ul>
 
     </div>
 
     <div class="middle_section">
-
+        <h2>Informatii student:</h2>
         <div id="info_student">
 
               <ul class="student_informations_list">
@@ -75,7 +77,7 @@
               </ul>
 
         </div>
-
+        <div id="feed_name"><h1>Noutati:</h1></div>
         <div class="atom_feed">
 
             <?php include('../atom_feed/parser.php'); ?>

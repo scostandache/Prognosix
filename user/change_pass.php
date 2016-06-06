@@ -1,7 +1,7 @@
 <html>
 <head>
     <title>Schimbare parola</title>
-
+    <link rel="stylesheet" type="text/css" href="../CSS/style.css">
 </head>
 <body>
 <form name="frmChange" method="post" action="" onSubmit="return validatePassword()">

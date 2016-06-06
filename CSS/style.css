@@ -1,3 +1,4 @@
+
 body{
     font-family: monospace;
     background: aliceblue;
@@ -68,11 +69,16 @@ input#username{
     border:1px solid;
 }
 .atom_feed{
-    border:1px solid;
-    width:50%;
+    border: 1px solid;
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+    height: 315px;
+    width: 100%;
+    margin-top: 10%;
+
 }
 #info_student{
-    width:50%;
+
 }
 
 a{
@@ -102,4 +108,79 @@ a{
     width:20%;
     margin-left:20px;
     margin-top:20px;
+}
+
+.left_section{
+    background: antiquewhite;
+    width: 15%;
+    float: left;
+    height: 85%;
+    height: 658px;
+}
+
+.middle_section{
+    background: burlywood;
+    width: 58%;
+    float: left;
+    height: 85%;
+    height: 658px;
+}
+
+.right_section{
+    background: darkgray;
+    width: 25%;
+    float: left;
+    padding:1%;
+    height: 85%;
+    height: 631px;
+}
+
+.feed_item{
+    padding:3px;
+
+}
+
+.feed_item_title{
+    font-weight:bold;
+    font-size:115%;
+}
+
+.feed_item a{
+    text-decoration: underline ;
+
+}
+.feed_item a:hover{
+    color: midnightblue;
+
+}
+#feed_name{
+    text-align: center;
+    margin-top: 8%;
+}
+
+.student_informations_list {
+    border: 1px solid;
+}
+.student_informations_list li{
+    margin-bottom:1%;
+}
+.left_menu button{
+    margin-bottom: 11px;
+    border-radius: 5px;
+    border: 1px solid;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.left_menu{
+    margin-top: 50px;
+}
+
+.student_grades_table{
+    border:1px solid;
+}
+#info_student {
+    height: 115px;
 }

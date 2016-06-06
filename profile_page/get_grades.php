@@ -21,7 +21,7 @@ $student_info_query->bind_param("s",$nr_matricol );
 $student_info_query->execute();
 $objects_result=$student_info_query->get_result();
 
-echo "<table>
+echo "<table class='student_grades_table'>
 
     <tr>
         <td>Obiect</td>
