@@ -47,8 +47,8 @@ $dbname = "TW_database";
             //mail($row["email"], "Forgot Password", $mesaj, $headers);
 
             $query = "UPDATE studenti
-                  SET parola= '" . md5($newPass) .
-                " ' WHERE matricola ='" . $matricola . "'";
+                  SET parola='". md5($newPass).
+                "'WHERE matricola ='".$matricola."'";
             if ($connection->query($query) === FALSE) {
                 echo "Fail update password: " . $connection->error;
             }

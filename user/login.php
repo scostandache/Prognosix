@@ -7,7 +7,7 @@ if (isset($_POST['submit'])) {
 
 
     if (empty($_POST['username']) || empty($_POST['password'])) {
-        $error = "<div id='login_error'>Username-ul sau parola invalide !</div>";
+        $error = "<div id='login_error'>&nbsp;&nbsp;&nbsp;Username-ul sau parola invalide !</div>";
     }
 
     else {
@@ -51,12 +51,11 @@ if (isset($_POST['submit'])) {
                 header("location: admin/admin_dash.php");
             }
         }else {
-            $error = "<div id='login_error'>Username-ul sau parola invalide !</div>";
+            $error = "<div id='login_error'>&nbsp;&nbsp;&nbsp;Username-ul sau parola invalide !</div>";
         }
 
         $conn->close();
 
     }
-
 
 }

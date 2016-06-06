@@ -67,13 +67,12 @@
 //http://phppot.com/php/php-change-password-script/
 include("../user/session.php");
 
-$_SESSION['nr_matricol']='13sl13';
-
 $servername="localhost";
 $username="serb_costa";
 $pass="pass";
 $DB="TW_database";
 $conn= new mysqli($servername,$username,$pass,$DB);
+
 
 if(count($_POST)>0) {
 
@@ -87,7 +86,9 @@ if(count($_POST)>0) {
 
 
 
+
     if(md5($_POST["currentPassword"]) == $old_pass) {
+
 
         $conn= new mysqli($servername,$username,$pass,$DB);
         
@@ -96,8 +97,9 @@ if(count($_POST)>0) {
        $change_pass_query->bind_param("ss",$_POST["newPassword"],$_SESSION['nr_matricol'] );
        $change_pass_query->execute();
        mysqli_close($conn);
-       header('location:../profile_page/home.php');
-
+      // header('location:../profile_page/home.php');
+       echo "<div id='succes_msg'>Parola schimbata cu succes </div>";
+       header("refresh:1;url=../profile_page/home.php" );
     }
     else $message = "Parola gresita";
 }
