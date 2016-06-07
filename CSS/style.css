@@ -184,3 +184,63 @@ a{
 #info_student {
     height: 115px;
 }
+
+form[name="frmChange"]{
+    width: 24%;
+    margin: 0 auto;
+
+
+}
+
+.reset_pass{
+    text-align: center;
+}
+
+.register_title{
+    text-align: center;
+}
+
+.register_form{
+    width: 22%;
+    margin: 0 auto;
+}
+
+input[name="nr_matricol"]{
+    margin-left: 20px;
+}
+input[name="password"]{
+    margin-left: 70px;
+}
+
+input[name="confirm_password"]{
+    margin-left: 35px;
+}
+
+input[name="email"]{
+    margin-left: 65px;
+}
+
+input[name="raspuns"]{
+    margin-left: 55px;
+}
+
+.formforgot{
+    margin: 0 auto;
+    width: 13%;
+    padding: 10px;
+}
+
+.formforgot input[name="raspuns"]{
+    margin-left: 0px;
+}
+
+.formforgot input[name="submit2"]{
+    margin-top: 10px;
+    margin-left: 130px;
+}
+
+.admin_actiuni{
+    margin: 0 auto;
+    width: 60%;
+    padding: 10px;
+}

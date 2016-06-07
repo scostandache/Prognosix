@@ -1,6 +1,11 @@
 <?php
     require('..\fpdf181\fpdf.php');
 
+/*
+ * 
+ *
+ *
+ * */
 $servername = "localhost";
 $username = "serb_costa";
 $password = "pass";

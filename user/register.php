@@ -103,7 +103,10 @@ function test_input($data)
 
 ?>
 
-<div class="form">
+<h2 class="register_title">Inregistrare</h2>
+
+
+<div class="register_form">
 
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
 
@@ -111,10 +114,10 @@ function test_input($data)
 
     <br><br>
 
-    Password:<input type="password" name="password" required >
+    Parola:<input type="password" name="password" required >
 
     <br><br>
-    Confirm Password:<input type="password" name="confirm_password" required>
+    Confirmare: <input type="password" name="confirm_password" required>
 
     <br><br>
     E-mail: <input type="email" name="email" required>

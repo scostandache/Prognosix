@@ -14,7 +14,7 @@
     //print_r(count($xml2));
 
     if($typeFile != "xml"){
-        echo "This file is not a XML." . "<br>";
+        echo "Tipul fisierului trebuie sa fie XML!." . "<br>";
     }
     else
     {
@@ -35,17 +35,36 @@
         $xml = simplexml_load_file($_FILES['fileToUpload']['tmp_name']);
         //print_r($xml);
 
-        for ($i = 0; $i < count($xml); $i++) {
 
-            $query = "UPDATE note
+
+        $insertStm  = $connection->prepare("UPDATE note
+                                            SET luata = ?
+                                            WHERE student_matricola = ? and examen_id = ?");
+
+        $cont = 0;
+        for ($i = 0; $i < count($xml); $i++) {
+            $insertStm->bind_param("isi", $xml->student[$i]->nota , $xml->student[$i]->matricola, $xml->student[$i]->examenid);
+            if ($insertStm->execute() == FALSE){
+                echo "Fail insert event " . $insertStm->error. "<br>";
+            }
+            else{
+                $cont++;
+            }
+            /*$query = "UPDATE note
                   SET luata=" . $xml->student[$i]->nota .
-                " WHERE student_matricola =" . $xml->student[$i]->matricola . " and " . "examen_id =" . $xml->student[$i]->examenid;
+                " WHERE student_matricola ='" . $xml->student[$i]->matricola . "' and " . "examen_id =" . $xml->student[$i]->examenid;
             if ($connection->query($query) === FALSE) {
                 echo "Fail grades upload: " . $connection->error;
-            }
+            }*/
             //echo "matricola:" . $xml->student[$i]->matricola . " obiect:" . $xml->student[$i]->obiect . " nota:" . $xml->student[$i]->nota . "<br>";
-
         }
+        mysqli_stmt_close($insertStm);
+        mysqli_close($connection);
+        $connection = new mysqli($servername, $username, $password, $dbname);
+
+
+
+
 
         $sql_info="SELECT nume_obiect, tip, grupa from examene where id_exam=?";
 

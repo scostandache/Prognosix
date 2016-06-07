@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <note>
     <student>
-        <matricola>"13sl13"</matricola>
-        <examenid>9</examenid>
+        <matricola>13sl13</matricola>
+        <examenid>15</examenid>
         <nota>7</nota>
     </student>
 	<student>
-        <matricola>"12sl12"</matricola>
-        <examenid>9</examenid>
+        <matricola>12sl12</matricola>
+        <examenid>15</examenid>
         <nota>10</nota>
     </student>
 

@@ -36,7 +36,9 @@
 <body>
 
     <header class="main_header">
-        <a href="home.php">
+        
+        <a href= <?php if($_SESSION['admin']==0) echo "home.php"  ?>  >
+        
             <div class="logo">
                     <div class="app_name">ProGnosiX</div>
                     <div class="slogan">Guess Your Mark</div>
