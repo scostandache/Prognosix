@@ -3,7 +3,7 @@ ini_set("display_errors", 0);
 require ("../fpdf181/fpdf.php");
 require("../html_table.php");
 include("../user/session.php");
-$student_mat='13sl13';//$_SESSION['nr_matricol'];
+$student_mat=$_SESSION['nr_matricol'];
 
 $servername="localhost";
 $username="serb_costa";

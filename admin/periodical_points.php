@@ -43,7 +43,7 @@ mysqli_close($connection);
 
 if( $today==$row1[0] && $row1[1]==0){ // anuntul cu punctaje pentru jumatatea semestrului
 
-    echo "hello";
+
     $connection= new mysqli($servername,$username,$db_pass,$DB);
 
     $grades_query="select student_matricola, luata,ghicita, nume_obiect from note inner join ".
@@ -206,7 +206,7 @@ elseif($today==$row2[0] && $row2[1]==0){
 
     $update_title="Punctaje finale PrognosiX";
     $category='ALL';
-    $update_text="<![CDATA[ <a href='punctaje_prognosix.php'> Aici </a>]]> poti vedea punctajele finale PrognosiX, in functie de fiecare obiect.";
+    $update_text="<![CDATA[ <a href='../admin/punctaje_prognosix.php'> Aici </a>]]> poti vedea punctajele finale PrognosiX, in functie de fiecare obiect.";
 
 
     $connection= new mysqli($servername,$username,$db_pass,$DB);

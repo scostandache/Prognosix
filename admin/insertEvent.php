@@ -99,7 +99,7 @@ else
 
                 $count = 0;
                 if ($tip == "examen") {
-                    $sql = "SELECT matricola from studenti WHERE grupa LIKE '" . $grupa . "%'";
+                    $sql = "SELECT matricola from studenti WHERE grupa LIKE '" . $grupa[0] . "%'";
                     $result = $connection->query($sql);
 
                     while ($row = $result->fetch_assoc()) {
@@ -140,7 +140,7 @@ else
                         $ok = 1;
                         $matricola = $row["matricola"];
 
-                        $sql2 = "select count(student_matricola) from note where student_matricola =" . $matricola . " and " . "examen_id=" . $id_exam;
+                        $sql2 = "select count(student_matricola) from note where student_matricola ='" . $matricola . "' and " . "examen_id=" . $id_exam;
                         $result2 = $connection->query($sql2);
                         $row2 = $result2->fetch_assoc();
                         if ($row2["count(student_matricola)"] != 0) {
